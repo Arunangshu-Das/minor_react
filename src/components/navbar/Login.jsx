@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
+import './login.css';
 
 function Login() {
   
-  const [email, setEmail] = useState("");
+  const [text, setText] = useState("");
   const [password, setPassword] = useState("");
 
 
@@ -12,40 +13,31 @@ function Login() {
   const submitForm = (e)=>{
     e.preventDefault();
 
-    const newEntry = {email: email, password: password};
+    const newEntry = {text: text, password: password};
 
     setAllEntry([...allEntry, newEntry]);
     console.log(allEntry);
   }
   
   return (
-    <>
-    <form action=" " onSubmit={submitForm}>
-    <div>
-      <label htmlFor='email'>Email</label>
-      <input type="email" name="email" id="email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-    </div>
-    <div>
-      <label htmlFor='password'>Pasword</label>
-      <input type="password" name="password" id="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
-    </div>
+    
+    <body styles={"background-color: rgba(127, 125, 125, 0.954);"}><>
+    <form className ="formbox"action=" " onSubmit={submitForm}>
+    <h1>Login</h1>
+    
+      
+      <input type="text" name="" id="text" placeholder='Username' autoComplete='none' value={text} onChange={(e)=>setText(e.target.value)}/>
+    
+    
+      
+      <input type="password" name="" placeholder='Password' id="password" autoComplete='none' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+    
 
-    <button type="submit">Login</button>
+    <input type="submit" name="" value="Login"/>
     </form>
-
-    {/* <div>
-      {
-        allEntry.map((curElem)=>{
-            return (
-              <div className='showDataStyle'>
-                <p>{curElem.email}</p>
-                <p>{curElem.password}</p>
-              </div>
-            )
-        })
-      }
-    </div> */}
     </>
+    </body>
+    
   )
 }
 
