@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Home from './components/mainpage/Home';
 import Human from './components/mainpage/Human';
 import Veterinary from './components/mainpage/Veterinary';
+import Search from './components/navbar/Search';
 
 function App() {
   return (
@@ -19,9 +20,12 @@ function App() {
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/human' element={<Human/>}/>
         <Route path='/veterinary' element={<Veterinary/>}/>
+        <Route path='/search' element={<Search/>}/>
       </Routes>
+      
       <Footer/>
     </BrowserRouter>
+    
   );
 }
 
