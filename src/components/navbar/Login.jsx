@@ -1,24 +1,33 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import {toast} from 'react-toastify'
 import './login.css';
 
 function Login() {
   
-  const [text, setText] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-
-  const [allEntry, setAllEntry] = useState([]);
   
+  const usenavigate =  useNavigate()
 
   const submitForm = (e)=>{
     e.preventDefault();
 
-    const newEntry = {text: text, password: password};
-
-    setAllEntry([...allEntry, newEntry]);
-    console.log(allEntry);
+    console.log( email, password);
+    axios.post("https://minor-backend-sq9t.onrender.com/login",{
+      email: email,
+      password: password,
+    })
+    .then(res=>{
+      console.log(res.data)
+    }).catch(err=>{
+      console.log(err)
+    })
+    
   }
-  
+
+ 
   return (
     
     <body styles={"background-color: rgba(127, 125, 125, 0.954);"}><>
@@ -26,7 +35,7 @@ function Login() {
     <h1>Login</h1>
     
       
-      <input type="text" name="" id="text" placeholder='Username' autoComplete='none' value={text} onChange={(e)=>setText(e.target.value)}/>
+      <input type="email" name="" id="email" placeholder='Username' autoComplete='none' value={email} onChange={(e)=>setEmail(e.target.value)}/>
     
     
       

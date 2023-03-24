@@ -1,34 +1,107 @@
-body 
-{
-font-family: Arial, Helvetica, sans-serif;
-margin-left:25%;
-margin-right:25%;
-border: 1px solid #000000;
-margin-bottom: 5px;
-padding: 0px 15px 0 15px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+body{
+    background-image: linear-gradient(to right, rgba(48, 47, 48, 0.107) ,rgba(60, 59, 62, 0.034) );
 }
-input[type=text], input[type=password], input[type=email], input[type=number]
-{
-width: 97%;
-padding: 10px;
-margin: 5px 0 22px 0;
-display: inline-block;
-border: none;
-background: #F5F5F5;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
 }
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    text-shadow: 10px 10px 12px rgb(27, 25, 23), 10px 10px 12px rgb(14, 8, 14) ;
+    font-weight: bold;
+    animation-duration: 3Ss;
+    animation-name: slide-in;
+    animation-iteration-count:infinite;
+}
+@keyframes slide-in{
+    0%{
+        margin-right: 50%;
+        width: 200%;
+    }
+    
+        
+    100%{
+        margin-left: 0%;
+        width: 100%;
+    }
+    }
+
+.signup{
+    width: 900px;
+    max-width:100%;
+    min-height:400px;
+    margin:0 auto;
+    display:flex;
+    flex-direction: inline;
+    background-color: rgba(13, 8, 0, 0.071);
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px 10px rgb(12, 7, 12);
+}
+img{
+    height: auto;
+    width:40%;
+}
+form{
+    
+    width:60%;
+    margin-right:50px;
+    margin-left: 50px;
+    
+}
+.group{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+}
+
+label{
+    margin-top:10px ;
+    margin-bottom: 10px;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+select{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+input{
+    padding:10px;
+    border-radius: 10px;
+    border: none;
+
+}
+input:focus{
+    
+    outline-color:black ;
+}
+.btn{
+    padding: 10px;
+    border-radius:10px;
+    margin-top:15px ;
+    border: none;
+    background-color: #683e93;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    cursor:pointer;
+    
+}
+.btn:hover{
+    background-color:rgb(27, 24, 100);
+    transition: 0.8s;
+    color: white;
+}
+
 hr 
-{
-border: 1px solid #5b5757d4;
-margin-bottom: 5px;
-}
-.btn
-{
-background-color: #3b29a3;
-color: white;
-padding: 15px 20px;
-margin: 10px 0px;
-border: none;
-cursor: pointer;
-width: 100%;
-text:bold;
-}
+            {
+            border: 1px solid #5b5757d4;
+            margin-bottom: 5px;
+            }
