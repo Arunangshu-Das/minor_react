@@ -1,13 +1,20 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import {useEffect} from 'react'
+import {Link, useNavigate} from 'react-router-dom'
 
 
 
 function Home(props){
+const navigate = useNavigate()
+useEffect(() => { 
+  if(!localStorage.getItem('token')){
+    navigate('/login')
+  }
+},[])
+
   console.log(props)
   return (
     <div>
-      <div className="card">
+    <div className="card">
     <img src="..." className="card-img-top" alt="..."/>
     <div className="card-body">
     <h5 className="card-title">Card title</h5>

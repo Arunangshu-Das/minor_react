@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-// import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+// import { ToastContainer,toast } from "react-toastify";
 import "./signup.css";
 
 function Signup() {
@@ -13,9 +13,44 @@ function Signup() {
   const [password, setPassword] = useState("");
   // const [psw_repeat, setPsw_repeat] = useState("")
 
+  const navigate = useNavigate()
+  const isValidate = () =>{
+    let isproceed= true
+    let errormessage = 'Please enter the value in'
+    if(firstname===null || firstname === ''){
+      isproceed = false
+      errormessage += 'firstname'
+    } 
+    if(lastname===null || lastname === ''){
+      isproceed = false
+      errormessage += 'lastname'
+    }
+    if(email===null || email === ''){
+      isproceed = false
+      errormessage += 'email'
+    }
+    if(phoneno===null || phoneno === ''){
+      isproceed = false
+      errormessage += 'phoneno'
+    }
+    if(password===null || password === ''){
+      isproceed = false
+      errormessage += 'password'
+    }
+    if(address===null || address === ''){
+      isproceed = false
+      errormessage += 'address'
+    }
+    if(!isproceed){
+      alert(errormessage)
+    }
+    return isproceed
+  }
+
+
   const handleSubmit =  (e) => {
     e.preventDefault();
-    // let obj = { firstname, lastname, email, phoneno, password, address };
+    if(isValidate){
     console.log(firstname, lastname, email, phoneno, password, address);
     axios.post("https://minor-backend-sq9t.onrender.com/register",{
       firstname: firstname,
@@ -26,10 +61,15 @@ function Signup() {
       password: password,
     })
     .then(res=>{
+      // alert("Registered Successfully")
       console.log(res.data)
+      localStorage.setItem('token',res.data.token)
+      navigate('/')
     }).catch(err=>{
+      alert("Error :"+err.message)
       console.log(err)
     })
+  }
   };
   return (
     <>

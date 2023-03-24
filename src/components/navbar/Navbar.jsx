@@ -12,8 +12,8 @@ const Navbar = () => {
         <label className="logo">MediQUICK</label>
         <ul>
             <li><Link className="link " to="/">Home</Link></li>
-            <li><Link className="link" to="/">Human</Link></li>
-            <li><Link className="link" to="/">Veteinary</Link></li>
+            <li><Link className="link" to="/human">Human</Link></li>
+            <li><Link className="link" to="/veteinary">Veteinary</Link></li>
             <li><Link className="link" to="/login">Login</Link></li>
             <li><Link className="link" to="/signup">Sign Up</Link></li>
             <li><Link className="link" to="/search">Search</Link></li>
