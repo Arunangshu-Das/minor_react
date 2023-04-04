@@ -31,7 +31,7 @@ body{
     padding: 14px 10px;
     width: 200px;
     outline: none;
-    color: rgb(252, 247, 247);
+    color: rgb(255, 255, 255);
     border-radius: 25px;
     transition: .25s;
 }
