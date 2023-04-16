@@ -1,23 +1,15 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./search.css";
+import Searchresult from"./Searchresult";
 
 function Search() {
   const [name, setName] = useState([]);
+  const navigate = useNavigate();
+
   const fetchData = (e) => {
-    
-    e.preventDefault();
-    axios.post("https://minor-backend-sq9t.onrender.com/search", {
-      name: name,
-      })
-      .then(res => {
-        console.log(res.data)
-      })
-        .catch(err =>{
-          console.log(err)
-        })
-      
+    navigate('/searchresult', { state: { name: name } });
+    // <Searchresult name={name}/>
   };
 
 
