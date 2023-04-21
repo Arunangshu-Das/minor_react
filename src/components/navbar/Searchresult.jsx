@@ -4,12 +4,12 @@ import React from "react";
 import "./searchresult.css";
 // import { useLocation } from "react-router-dom";
 import { useSearch } from '../../context/searchc';
-function Searchresult() {
+function Searchresult(props) {
   // const location = useLocation();
   // const name = location?.state?.name || "";
 
-  const [values, setValues] = useSearch("");
-
+  const [values, setValues] = useSearch(props.values);
+  console.log(values.results[0].data)
   // useEffect(() => {
   //   axios
   //     .post("https://minor-backend-sq9t.onrender.com/search", {
@@ -96,21 +96,20 @@ function Searchresult() {
   <div className="container">
   <div className="text-center">
     <h1>Search Results</h1>
-    <h6>
-      {values && values.results && values.results.length < 1
+    {/* <h6>
+      {values && values.results < 1
         ? "No Products Found"
         : `Found ${values?.results.length}`}
-    </h6>
+    </h6> */}
     <div className="d-flex flex-wrap mt-4">
-      {values &&
-        values.results &&
-        values.results.map((p) => (
+      {
+        values.results[0].data.map((p) => (
           <div className="card m-2" style={{ width: "18rem" }} key={p.id}>
-            <img src={p.image} className="card-img-top" alt={p.name} />
+            <img src={p.Image} className="card-img-top" alt={p.name} />
             <div className="card-body">
-              <h5 className="card-title">{p.name}</h5>
-              <p className="card-text">{p.description}</p>
-              <p className="card-text"> $ {p.price}</p>
+              <h5 className="card-title">{p.Name}</h5>
+              <p className="card-text">{p.Desctription}</p>
+              <p className="card-text"> $ {p.Price}</p>
               <button className="btn btn-primary ms-1">More Details</button>
               <button className="btn btn-secondary ms-1">ADD TO CART</button>
             </div>
@@ -118,7 +117,7 @@ function Searchresult() {
         ))}
     </div>
   </div>
-</div>
+  </div>
   );
 }
 

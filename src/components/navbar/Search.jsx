@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./search.css";
 import Searchresult from"./Searchresult";
+import { useSearch } from '../../context/searchc';
 import axios from "axios";
 function Search() {
 
-  const [values, setValues] = useState("");
+  const [values, setValues] = useSearch();
   const navigate = useNavigate();
+  // const [auth, setAuth] = useSearch();
 
   const fetchData = async (e) => {
     // navigate('/searchresult', { state: { name: name } });
@@ -15,8 +17,10 @@ function Search() {
       const { data } = await axios.post("https://minor-backend-sq9t.onrender.com/search", {
           name: values
       })
-      setValues(data);
-      navigate("/searchresult")
+      setValues({values, results: [data]});
+      navigate("/searchresult", { state: { values: data.results } })
+      // setAuth({ ...auth, results: data.results }); // Update the results in the SearchContext
+      // navigate("/searchresult", { state: { values: data.results } }); 
       console.log(data)
     } catch (error) {
       console.log(error);
