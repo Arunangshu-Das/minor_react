@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-// import { ToastContainer,toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "./signup.css";
 
 function Signup() {
@@ -16,60 +16,79 @@ function Signup() {
   const navigate = useNavigate();
   const isValidate = () => {
     let isproceed = true;
-    let errormessage = "Please enter the value in";
+    let message = "Please enter the value in";
     if (firstname === null || firstname === "") {
       isproceed = false;
-      errormessage += "firstname";
+      message += "firstname";
     }
     if (lastname === null || lastname === "") {
       isproceed = false;
-      errormessage += "lastname";
+      message += "lastname";
     }
     if (email === null || email === "") {
       isproceed = false;
-      errormessage += "email";
+      message += "email";
     }
     if (phoneno === null || phoneno === "") {
       isproceed = false;
-      errormessage += "phoneno";
+      message += "phoneno";
     }
     if (password === null || password === "") {
       isproceed = false;
-      errormessage += "password";
+      message += "password";
     }
     if (address === null || address === "") {
       isproceed = false;
-      errormessage += "address";
+      message += "address";
     }
     if (!isproceed) {
-      alert(errormessage);
+      alert(message);
     }
     return isproceed;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isValidate) {
-      console.log(firstname, lastname, email, phoneno, password, address);
-      axios
-        .post("https://minor-backend-sq9t.onrender.com/register", {
-          firstname: firstname,
-          lastname: lastname,
-          email: email,
-          phoneno: phoneno,
-          address: address,
-          password: password,
-        })
-        .then((res) => {
-          // alert("Registered Successfully")
+     try{
+      const res = await axios.post("https://minor-backend-sq9t.onrender.com/register", {
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        phoneno: phoneno,
+        address: address,
+        password: password,
+      })
+      if(res.data.success){
+        toast.success("Register Succesfully");
           console.log(res.data);
           localStorage.setItem("token", res.data.token);
           navigate("/");
-        })
-        .catch((err) => {
-          alert("Error :" + err.message);
-          console.log(err);
-        });
+      }
+     } catch(err){
+      toast.error('Something went wrong')
+      console.log(err);
+     }
+      // axios
+      //   .post("https://minor-backend-sq9t.onrender.com/register", {
+      //     firstname: firstname,
+      //     lastname: lastname,
+      //     email: email,
+      //     phoneno: phoneno,
+      //     address: address,
+      //     password: password,
+      //   })
+      //   .then((res) => {
+      //     toast.success('Register Successfully');
+      //     console.log(res.data);
+      //     localStorage.setItem("token", res.data.token);
+      //     navigate("/");
+      //   })
+      //   .catch((err) => {
+      //     toast.error('Register Unsuccessful')
+      //     alert("Error :" + err.message);
+      //     console.log(err);
+      //   });
     }
   };
   return (
@@ -103,7 +122,7 @@ function Signup() {
           onChange={(e) => setLastname(e.target.value)}
           required
         />
-        <br />
+        <br/>
 
         <label htmlFor="name">
           <b>E-Mail</b>
@@ -114,7 +133,7 @@ function Signup() {
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required
+          // required
         />
         <br />
 
@@ -127,7 +146,7 @@ function Signup() {
           name="phoneno"
           value={phoneno}
           onChange={(e) => setPhoneno(e.target.value)}
-          required
+          // required
         />
         <br />
 
@@ -140,7 +159,7 @@ function Signup() {
           name="address"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
-          required
+          // required
         />
         <br />
 
@@ -153,7 +172,7 @@ function Signup() {
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
+          // required
         />
         <br />
 
@@ -164,7 +183,7 @@ function Signup() {
           type="password"
           placeholder="Repeat Your Password"
           name="psw-repeat"
-          required
+          // required
         />
         <br />
         <hr />

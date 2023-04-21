@@ -1,6 +1,6 @@
 
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {  Route, Routes } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Login from './components/navbar/Login';
 import Signup from './components/navbar/Signup';
@@ -10,11 +10,14 @@ import Human from './components/mainpage/Human';
 import Veterinary from './components/mainpage/Veterinary';
 import Search from './components/navbar/Search';
 import Searchresult from './components/navbar/Searchresult';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <BrowserRouter>
+<>
       <Navbar/>
+      <ToastContainer/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
@@ -24,9 +27,8 @@ function App() {
         <Route path='/search' element={<Search/>}/>
         <Route path='/searchresult' element={<Searchresult/>}/>
       </Routes>
-      
       <Footer/>
-    </BrowserRouter>
+</>
     
   );
 }

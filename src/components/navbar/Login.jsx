@@ -1,17 +1,16 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-// import SetCookie from '../hooks/SetCookies';
-// import GetCookie from '../hooks/GetCookie';
-// import RemoveCookie from '../hooks/RemoveCookie';
-// import {toast} from 'react-toastify'
+import { toast } from "react-toastify";
+import { useAuth } from '../../context/auth';
 import './login.css';
 
 function Login() {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+  const [auth,setAuth] = useAuth()
+
   const navigate =  useNavigate()
 
   const isValidate = () =>{
@@ -31,24 +30,43 @@ function Login() {
     return isproceed
   }
 
-  const submitForm = (e)=>{
+  const submitForm = async (e)=>{
     e.preventDefault();
 
     console.log( email, password);
     if(isValidate){
-    axios.post("https://minor-backend-sq9t.onrender.com/login",{
-      email: email,
-      password: password,
-    })
-    .then(res=>{
-      console.log(res.data)
-      alert("Login successfully")
-      localStorage.setItem('token',res.data.token)
-      navigate('/')
-    }).catch(err=>{
-      console.log(err)
-      alert("Failed :"+err.message)
-    })
+           try{
+           const res = await axios.post("https://minor-backend-sq9t.onrender.com/login",{
+              email: email,
+              password: password,
+            })
+      if(res.data.success){
+        toast.success("Login Succesfully");
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        })
+          localStorage.setItem("auth", JSON.stringify(res.data));
+          navigate("/");
+      }
+     } catch(err){
+      toast.error('Something went wrong')
+      console.log(err);
+     }
+    // axios.post("https://minor-backend-sq9t.onrender.com/login",{
+    //   email: email,
+    //   password: password,
+    // })
+    // .then(res=>{
+    //   console.log(res.data)
+    //   alert("Login successfully")
+    //   localStorage.setItem('token',res.data.token)
+    //   navigate('/')
+    // }).catch(err=>{
+    //   console.log(err)
+    //   alert("Failed :"+err.message)
+    // })
   }
   }
 
