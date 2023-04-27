@@ -1,9 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function Human() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("auth")) {
+      navigate("/login");
+    }
+  }, []);
   return (
     <div>
-      Keliye debo
+      Human
     </div>
   )
 }

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import { useState } from "react";
@@ -6,11 +5,7 @@ import { useState } from "react";
 function Home(props) {
   const [auth,setAuth] = useAuth()
   const navigate = useNavigate();
-  useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      navigate("/login");
-    }
-  }, []);
+
 
   console.log(props);
   return (

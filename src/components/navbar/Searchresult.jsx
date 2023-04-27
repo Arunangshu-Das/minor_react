@@ -1,14 +1,14 @@
 import React from "react";
-// import { useEffect, useState } from "react";
-// import axios from "axios";
 import "./searchresult.css";
-// import { useLocation } from "react-router-dom";
+import toast from 'react-hot-toast';
 import { useSearch } from '../../context/searchc';
+import { useCart } from "../../context/cart";
 function Searchresult(props) {
   // const location = useLocation();
   // const name = location?.state?.name || "";
 
   const [values, setValues] = useSearch(props.values);
+  const [cart,setCart] = useCart()
   console.log(values.results[0].data)
   // useEffect(() => {
   //   axios
@@ -99,7 +99,7 @@ function Searchresult(props) {
     {/* <h6>
       {values && values.results < 1
         ? "No Products Found"
-        : `Found ${values?.results.length}`}
+        : " "}
     </h6> */}
     <div className="d-flex flex-wrap mt-4">
       {
@@ -111,7 +111,11 @@ function Searchresult(props) {
               <p className="card-text">{p.Desctription}</p>
               <p className="card-text"> $ {p.Price}</p>
               <button className="btn btn-primary ms-1">More Details</button>
-              <button className="btn btn-secondary ms-1">ADD TO CART</button>
+              <button className="btn btn-secondary ms-1" 
+              onClick={()=>{
+                setCart([...cart,p])
+                toast.success("Item added to cart")
+              }}>ADD TO CART</button>
             </div>
           </div>
         ))}

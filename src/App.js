@@ -10,14 +10,17 @@ import Human from './components/mainpage/Human';
 import Veterinary from './components/mainpage/Veterinary';
 import Search from './components/navbar/Search';
 import Searchresult from './components/navbar/Searchresult';
-import { ToastContainer} from 'react-toastify';
+import PageNotFound from './components/mainpage/PageNotFound';
+import { Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
+import Showcart from './components/navbar/Showcart';
+
 
 function App() {
   return (
 <>
       <Navbar/>
-      <ToastContainer/>
+      <Toaster />
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
@@ -26,6 +29,8 @@ function App() {
         <Route path='/veterinary' element={<Veterinary/>}/>
         <Route path='/search' element={<Search/>}/>
         <Route path='/searchresult' element={<Searchresult/>}/>
+        <Route path='/showcart' element={<Showcart/>}/>
+        <Route path='*' element={<PageNotFound/>}/>
       </Routes>
       <Footer/>
 </>
