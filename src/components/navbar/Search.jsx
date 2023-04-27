@@ -15,6 +15,7 @@ function Search() {
       navigate("/login");
     }
   }, []);
+
   const fetchData = async (e) => {
     e.preventDefault();
     try {
@@ -37,8 +38,7 @@ function Search() {
           type="text"
           className="input"
           placeholder="Search For Your Medicines!"
-          // value={values}
-        onChange={(e) => setValues(e.target.value)}
+          onChange={(e) => setValues(e.target.value)}
         />
         <button value="search" className="close-btn" onClick={fetchData}>Search</button>
       </div>

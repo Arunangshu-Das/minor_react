@@ -54,19 +54,6 @@ function Login() {
       toast.error('Something went wrong')
       console.log(err);
      }
-    // axios.post("https://minor-backend-sq9t.onrender.com/login",{
-    //   email: email,
-    //   password: password,
-    // })
-    // .then(res=>{
-    //   console.log(res.data)
-    //   alert("Login successfully")
-    //   localStorage.setItem('token',res.data.token)
-    //   navigate('/')
-    // }).catch(err=>{
-    //   console.log(err)
-    //   alert("Failed :"+err.message)
-    // })
   }
   }
 

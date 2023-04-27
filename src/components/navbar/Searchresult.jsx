@@ -1,127 +1,48 @@
 import React from "react";
 import "./searchresult.css";
-import toast from 'react-hot-toast';
-import { useSearch } from '../../context/searchc';
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { useSearch } from "../../context/searchc";
 import { useCart } from "../../context/cart";
 function Searchresult(props) {
-  // const location = useLocation();
-  // const name = location?.state?.name || "";
-
   const [values, setValues] = useSearch(props.values);
-  const [cart,setCart] = useCart()
-  console.log(values.results[0].data)
-  // useEffect(() => {
-  //   axios
-  //     .post("https://minor-backend-sq9t.onrender.com/search", {
-  //       name: name,
-  //     })
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       setMedicines(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [name]);
-
-  // Render the Searchresult component with the name value
+  const [cart, setCart] = useCart();
+  const navigate = useNavigate();
+  console.log(values.results[0].data);
 
   return (
-    // <div className="wrapper">
-    //   <h1>
-    //     <span styles="font-weight: bold;"> Search Results</span>
-    //   </h1>
-
-    //   <div
-    //     className="class=style={{backgroundImage: 'url(#)'}}cols"
-    //   >
-    //     {medicines && medicines.length > 0  ? (
-    //       medicines.map((medicine) => (
-    //         <div
-    //           className="col"
-    //           onTouchStart={() => this.classList.toggle("hover")}
-    //         >
-    //           <div className="container">
-    //             <div
-    //               className="front"
-    //               style={{ backgroundImage: `url(${medicine.image})` }}
-    //             >
-    //               <div className="inner">
-    //                 <p>{medicine.name}</p>
-    //                 <span>Medicine 1</span>
-    //               </div>
-    //             </div>
-    //             <div className="back">
-    //               <div className="inner">
-    //                 <p>{medicine.description}</p>
-    //               </div>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       ))
-    //     ) : (
-    //       <p>No results found.</p>
-    //     )}
-    //   </div>
-    // </div>
-  //   <div className="container">
-  //   <div className="text-center">
-  //     <h1>Search Resuts</h1>
-  //     <h6>
-  //       {values && values.results && values.results.length < 1
-  //         ? "No Products Found"
-  //         : `Found ${values?.results.length}`}
-  //     </h6>
-  //     <div className="d-flex flex-wrap mt-4">
-  //       {values?.results.map((p) => (
-  //         <div className="card m-2" style={{ width: "18rem" }}>
-  //           <img
-  //             src={p.image}
-  //             className="card-img-top"
-  //           />
-  //           <div className="card-body">
-  //             <h5 className="card-title">{p.name}</h5>
-  //             <p className="card-text">
-  //               {p.description}
-  //             </p>
-  //             <p className="card-text"> $ {p.price}</p>
-  //             <button class="btn btn-primary ms-1">More Details</button>
-  //             <button class="btn btn-secondary ms-1">ADD TO CART</button>
-  //           </div>
-  //         </div>
-  //       ))}
-  //     </div>
-  //   </div>
-  // </div>
-  <div className="container">
-  <div className="text-center">
-    <h1>Search Results</h1>
-    {/* <h6>
-      {values && values.results < 1
-        ? "No Products Found"
-        : " "}
-    </h6> */}
-    <div className="d-flex flex-wrap mt-4">
-      {
-        values.results[0].data.map((p) => (
-          <div className="card m-2" style={{ width: "18rem" }} key={p.id}>
-            <img src={p.Image} className="card-img-top" alt={p.name} />
-            <div className="card-body">
-              <h5 className="card-title">{p.Name}</h5>
-              <p className="card-text">{p.Desctription}</p>
-              <p className="card-text"> $ {p.Price}</p>
-              <button className="btn btn-primary ms-1">More Details</button>
-              <button className="btn btn-secondary ms-1" 
-              onClick={()=>{
-                setCart([...cart,p])
-                toast.success("Item added to cart")
-              }}>ADD TO CART</button>
+    <div className="container">
+      <div className="text-center">
+        <h1>Search Results</h1>
+        <div className="d-flex flex-wrap mt-4">
+          {values.results[0].data.map((p) => (
+            <div className="card m-2" style={{ width: "18rem" }} key={p.id}>
+              <img src={p.Image} className="card-img-top" alt={p.name} />
+              <div className="card-body">
+                <h5 className="card-title">{p.Name}</h5>
+                <p className="card-text">{p.Desctription}</p>
+                <p className="card-text"> $ {p.Price}</p>
+                <button
+                  className="btn btn-primary ms-1"
+                  onClick={() => navigate("/proddescription")}
+                >
+                  More Details
+                </button>
+                <button
+                  className="btn btn-secondary ms-1"
+                  onClick={() => {
+                    setCart([...cart, p]);
+                    toast.success("Item added to cart");
+                  }}
+                >
+                  ADD TO CART
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
   );
 }
 

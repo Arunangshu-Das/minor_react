@@ -14,6 +14,7 @@ import PageNotFound from './components/mainpage/PageNotFound';
 import { Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
 import Showcart from './components/navbar/Showcart';
+import Proddescription from './components/product/Proddescription';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path='/veterinary' element={<Veterinary/>}/>
         <Route path='/search' element={<Search/>}/>
         <Route path='/searchresult' element={<Searchresult/>}/>
+        <Route path='/proddescription' element={<Proddescription/>}/>
         <Route path='/showcart' element={<Showcart/>}/>
         <Route path='*' element={<PageNotFound/>}/>
       </Routes>

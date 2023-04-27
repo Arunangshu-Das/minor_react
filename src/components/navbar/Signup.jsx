@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useAuth } from "../../context/auth";
+import toast from 'react-hot-toast';
 import "./signup.css";
 
 function Signup() {
@@ -11,6 +12,7 @@ function Signup() {
   const [phoneno, setPhoneno] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
+  const [auth,setAuth] = useAuth()
   // const [psw_repeat, setPsw_repeat] = useState("")
 
   const navigate = useNavigate();
@@ -60,35 +62,19 @@ function Signup() {
         password: password,
       })
       if(res.data.success){
-        toast.success("Register Succesfully");
-          console.log(res.data);
-          localStorage.setItem("token", res.data.token);
+        toast.success("Registered Succesfully");
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        })
+          localStorage.setItem("auth", JSON.stringify(res.data));
           navigate("/");
       }
      } catch(err){
       toast.error('Something went wrong')
       console.log(err);
      }
-      // axios
-      //   .post("https://minor-backend-sq9t.onrender.com/register", {
-      //     firstname: firstname,
-      //     lastname: lastname,
-      //     email: email,
-      //     phoneno: phoneno,
-      //     address: address,
-      //     password: password,
-      //   })
-      //   .then((res) => {
-      //     toast.success('Register Successfully');
-      //     console.log(res.data);
-      //     localStorage.setItem("token", res.data.token);
-      //     navigate("/");
-      //   })
-      //   .catch((err) => {
-      //     toast.error('Register Unsuccessful')
-      //     alert("Error :" + err.message);
-      //     console.log(err);
-      //   });
     }
   };
   return (
