@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/auth";
+// import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 import axios from "axios";
 import "./home.css";
@@ -11,12 +11,14 @@ import C2 from "./C2.jpg";
 import C3 from "./C3.jpg";
 
 function Home(props) {
-  const [auth, setAuth] = useAuth();
+  // const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
+  // const history = useHistory();
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [cart, setCart] = useCart();
   useEffect(() => {
-    async function fetchData() {
+    async function fetchData(e) {
       try {
         const res = await axios.get(
           "https://minor-backend-sq9t.onrender.com/all"
@@ -29,6 +31,7 @@ function Home(props) {
         //The Object.values() method is used to get an array of the property values for each object, and the every() method is used to check if all values are not null. If all values are not null,
         // the object is included in the filtered data array. The setData() function is then called with the filtered data array to update the state with the filtered data.
         setData(filteredData);
+        setFilteredData(filteredData);
         console.log(filteredData);
       } catch (error) {
         console.log(error);
@@ -37,7 +40,11 @@ function Home(props) {
     fetchData();
   }, []);
 
-  console.log(props);
+  const handleClick = () => {
+    navigate('/proddescription', { state: { data: filteredData } });
+  }
+
+  console.log(filteredData);
   return (
     <>
       <div
@@ -97,7 +104,7 @@ function Home(props) {
             </div>
           ) : (
             data.map((p) => (
-              <figure>
+              <figure key={p.id}>
                 <img src={p.Image} style={{ objectFit: "cover" }} alt="medicine" />
                 <figcaption>{p.Name}</figcaption>
                 <span className="price">{p.Price}</span>
@@ -114,7 +121,7 @@ function Home(props) {
                 <Link
                   className="button"
                   to="/proddescription"
-                  onClick={() => navigate("/proddescription")}
+                  onClick={handleClick}
                 >
                   Description
                 </Link>

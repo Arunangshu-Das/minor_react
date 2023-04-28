@@ -17,7 +17,7 @@ function Searchresult(props) {
         <div className="d-flex flex-wrap mt-4">
           {values.results[0].data.map((p) => (
             <div className="card m-2" style={{ width: "18rem" }} key={p.id}>
-              <img src={p.Image} className="card-img-top" alt={p.name} />
+              <img src={p.Image} className="card-img-top" alt={p.Name} />
               <div className="card-body">
                 <h5 className="card-title">{p.Name}</h5>
                 <p className="card-text">{p.Desctription}</p>
