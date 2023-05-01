@@ -41,10 +41,11 @@ function Home(props) {
   }, []);
 
   const handleClick = () => {
-    navigate('/proddescription', { state: { data: filteredData } });
+    console.log(data)
+    navigate('/proddescription',  { state: { values: data} })
   }
 
-  console.log(filteredData);
+  // console.log(filteredData);
   return (
     <>
       <div
@@ -93,7 +94,7 @@ function Home(props) {
           ))}
         </div>
       </div> */}
-
+    <form onSubmit={handleClick}>
       <div id="wrap">
         <div id="columns" className="columns_4">
           {data.length === 0 ? (
@@ -108,8 +109,9 @@ function Home(props) {
                 <img src={p.Image} style={{ objectFit: "cover" }} alt="medicine" />
                 <figcaption>{p.Name}</figcaption>
                 <span className="price">{p.Price}</span>
-                <Link
+                <button
                   className="button"
+                  type="submit"
                   to="/"
                   onClick={() => {
                     setCart([...cart, p]);
@@ -117,19 +119,111 @@ function Home(props) {
                   }}
                 >
                   Add to Cart
-                </Link>
-                <Link
+                </button>
+                <button
                   className="button"
-                  to="/proddescription"
+                  type="submit"
                   onClick={handleClick}
                 >
                   Description
-                </Link>
+                </button>
               </figure>
             ))
           )}
         </div>
       </div>
+      </form>
+      <section className="contact-page-section">
+      <div className="container">
+        <div className="sec-title">
+          {/* <div className="title">Contact Us</div> */}
+          <h1>Let's Get in Touch.</h1>
+        </div>
+        <div className="inner-container">
+          <div className="row clearfix">
+
+            <div className="form-column col-md-8 col-sm-12 col-xs-12">
+              <div className="inner-column">
+
+                <div className="contact-form">
+                  <form method="post" action="https://formspree.io/f/xyyaokbg" id="contact-form">
+                    <div className="row clearfix">
+                      <div className="form-group col-md-6 col-sm-6 co-xs-12">
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="Name"
+                          autoComplete = "off"
+                          required
+                        />
+                      </div>
+                      <div className="form-group col-md-6 col-sm-6 co-xs-12">
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder="Email"
+                          autoComplete = "off"
+                          required
+                        />
+                      </div>
+                      <div className="form-group col-md-6 col-sm-6 co-xs-12">
+                        <input
+                          type="text"
+                          name="address"
+                          placeholder="Address"
+                          autoComplete = "off"
+                          required
+                        />
+                      </div>
+                      <div className="form-group col-md-6 col-sm-6 co-xs-12">
+                        <input
+                          type="text"
+                          name="phone"
+                          placeholder="Phone"
+                          autoComplete = "off"
+                          required
+                        />
+                      </div>
+                      <div className="form-group col-md-12 col-sm-12 co-xs-12">
+                        <textarea
+                          name="message"
+                          placeholder="Message- Your Concern/Feedback"
+                        ></textarea>
+                      </div>
+                      <div className="form-group col-md-12 col-sm-12 co-xs-12">
+                        <button type="submit" className="theme-btn btn-style-one">
+                          Send Now
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+               
+              </div>
+            </div>
+
+            
+            <div className="info-column col-md-4 col-sm-12 col-xs-12">
+              <div className="inner-column">
+                <h1>Contact Info</h1>
+                <ul className="list-info">
+                  <li>
+                    <i className="fas fa-globe"></i>MediQuick,Kolkata- ARAK Group
+                    Initiative
+                  </li>
+                  <li><i className="far fa-envelope"></i>mediquickkol@gmail.com</li>
+                  <li>
+                    <i className="fas fa-phone"></i>9012345672 <br />
+                    9234681210
+                  </li>
+                </ul>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     </>
   );
 }
