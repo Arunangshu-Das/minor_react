@@ -23,11 +23,12 @@ const Navbar = () => {
         <label htmlFor="check" className="checkbtn">
             <i className="fas fa-bars"></i>
         </label>
-        <label className="logo">MediQUICK</label>
+        <label className="logo">
+        <i class="bi bi-capsule"></i> {' '}{' '}{' '}
+          MediQUICK</label>
         <ul>
             <li><Link className="link " to="/">Home</Link></li>
             <li><Link className="link" to="/human">Human</Link></li>
-            <li><Link className="link" to="/veterinary">Veteinary</Link></li>
             {
               !auth.user ? (
               <>
@@ -41,7 +42,9 @@ const Navbar = () => {
             <li><Link className="link" to="/search">Search</Link></li>
             <li><Link className="link" to="/showcart">
                 <Badge count={cart?.length} showZero offset={[10, -5]}>
-                  Cart
+                  <div className='text-white' style={{"font-size": "30px"}}>
+                    <i class="bi bi-bag"></i>
+                  </div>
                 </Badge>
                 </Link>
             </li>

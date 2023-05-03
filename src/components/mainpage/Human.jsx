@@ -66,11 +66,25 @@ const Human = () => {
   const [symptom1, setSymptom1] = useState('');
   const [symptom2, setSymptom2] = useState('');
   const [symptom3, setSymptom3] = useState('');
+  const [symptom4, setSymptom4] = useState('');
+  const [symptom5, setSymptom5] = useState('');
+  const [symptom6, setSymptom6] = useState('');
+  const [symptom7, setSymptom7] = useState('');
+  const [symptom8, setSymptom8] = useState('');
+  const [symptom9, setSymptom9] = useState('');
+  const [symptom10, setSymptom10] = useState('');
+  const [symptom11, setSymptom11] = useState('');
+  const [symptom12, setSymptom12] = useState('');
+  const [symptom13, setSymptom13] = useState('');
+  const [symptom14, setSymptom14] = useState('');
+  const [symptom15, setSymptom15] = useState('');
+  const [symptom16, setSymptom16] = useState('');
+  const [symptom17, setSymptom17] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const data1 = symptom1+','+symptom2+','+symptom3;
+    const data1 = symptom1+','+symptom2+','+symptom3+','+symptom4+','+symptom5+','+symptom6+','+symptom7+','+symptom8+','+symptom9+','+symptom10+','+symptom11+','+symptom12+','+symptom13+','+symptom14+','+symptom15+','+symptom16+','+symptom17;
     const data={
       data:data1
     }
@@ -85,6 +99,20 @@ const Human = () => {
         console.log(symptom1);
         console.log(symptom2);
         console.log(symptom3);
+        console.log(symptom4);
+        console.log(symptom5);
+        console.log(symptom6);
+        console.log(symptom7);
+        console.log(symptom8);
+        console.log(symptom9);
+        console.log(symptom10);
+        console.log(symptom11);
+        console.log(symptom12);
+        console.log(symptom13);
+        console.log(symptom14);
+        console.log(symptom15);
+        console.log(symptom16);
+        console.log(symptom17);
       });
   }
 
@@ -99,42 +127,48 @@ const Human = () => {
   const handleSymptom3Change = (event) => {
     setSymptom3(event.target.value);
   }
-  // const handleSymptom3Change = (event) => {
-  //   setSymptom3(event.target.value);
-  // }
-  // const handleSymptom3Change = (event) => {
-  //   setSymptom3(event.target.value);
-  // }
-  // const handleSymptom3Change = (event) => {
-  //   setSymptom3(event.target.value);
-  // }
-  // const handleSymptom3Change = (event) => {
-  //   setSymptom3(event.target.value);
-  // }
-  // const handleSymptom3Change = (event) => {
-  //   setSymptom3(event.target.value);
-  // }
-  // const handleSymptom3Change = (event) => {
-  //   setSymptom3(event.target.value);
-  // }
-  // const handleSymptom3Change = (event) => {
-  //   setSymptom3(event.target.value);
-  // }
-  // const handleSymptom3Change = (event) => {
-  //   setSymptom3(event.target.value);
-  // }
-  // const handleSymptom3Change = (event) => {
-  //   setSymptom3(event.target.value);
-  // }
-  // const handleSymptom3Change = (event) => {
-  //   setSymptom3(event.target.value);
-  // }
-  // const handleSymptom3Change = (event) => {
-  //   setSymptom3(event.target.value);
-  // }
-  // const handleSymptom3Change = (event) => {
-  //   setSymptom3(event.target.value);
-  // }
+  const handleSymptom4Change = (event) => {
+    setSymptom4(event.target.value);
+  }
+  const handleSymptom5Change = (event) => {
+    setSymptom5(event.target.value);
+  }
+  const handleSymptom6Change = (event) => {
+    setSymptom6(event.target.value);
+  }
+  const handleSymptom7Change = (event) => {
+    setSymptom7(event.target.value);
+  }
+  const handleSymptom8Change = (event) => {
+    setSymptom8(event.target.value);
+  }
+  const handleSymptom9Change = (event) => {
+    setSymptom9(event.target.value);
+  }
+  const handleSymptom10Change = (event) => {
+    setSymptom10(event.target.value);
+  }
+  const handleSymptom11Change = (event) => {
+    setSymptom11(event.target.value);
+  }
+  const handleSymptom12Change = (event) => {
+    setSymptom12(event.target.value);
+  }
+  const handleSymptom13Change = (event) => {
+    setSymptom13(event.target.value);
+  }
+  const handleSymptom14Change = (event) => {
+    setSymptom14(event.target.value);
+  }
+  const handleSymptom15Change = (event) => {
+    setSymptom15(event.target.value);
+  }
+  const handleSymptom16Change = (event) => {
+    setSymptom16(event.target.value);
+  }
+  const handleSymptom17Change = (event) => {
+    setSymptom17(event.target.value);
+  }
 
 
   return (
@@ -151,7 +185,7 @@ const Human = () => {
           onChange={handleSymptom1Change}
         >
           <select>
-            <option>Enter Symptom 1</option>
+            <option value="">Enter Symptom 1</option>
             <option value="blurred_and_distorted_vision">
               blurred_and_distorted_vision
             </option>
@@ -311,7 +345,7 @@ const Human = () => {
           onChange={handleSymptom2Change}
         >
           <select>
-            <option>Enter Symptom 2</option>
+            <option value="">Enter Symptom 2</option>
             <option value="blurred_and_distorted_vision">
               blurred_and_distorted_vision
             </option>
@@ -471,7 +505,7 @@ const Human = () => {
           onChange={handleSymptom3Change}
         >
           <select>
-            <option>Enter Symptom 3</option>
+            <option value="">Enter Symptom 3</option>
             <option value="blurred_and_distorted_vision">
               blurred_and_distorted_vision
             </option>
@@ -625,10 +659,10 @@ const Human = () => {
             <option value="passage_of_gases">passage_of_gases</option>
           </select>
         </span>
-        {/* <span
+        <span
           className="custom-dropdown big"
-          value={data.symptom4}
-          onChange={handleInputChange}
+          value={symptom4}
+          onChange={handleSymptom4Change}
         >
           <select>
             <option>Enter Symptom 4</option>
@@ -787,8 +821,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom5}
-          onChange={handleInputChange}
+          value={symptom5}
+          onChange={handleSymptom5Change}
         >
           <select>
             <option>Enter Symptom 5</option>
@@ -947,8 +981,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom6}
-          onChange={handleInputChange}
+          value={symptom6}
+          onChange={handleSymptom6Change}
         >
           <select>
             <option>Enter Symptom 6</option>
@@ -1107,8 +1141,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom7}
-          onChange={handleInputChange}
+          value={symptom7}
+          onChange={handleSymptom7Change}
         >
           <select>
             <option>Enter Symptom 7</option>
@@ -1267,8 +1301,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom8}
-          onChange={handleInputChange}
+          value={symptom8}
+          onChange={handleSymptom8Change}
         >
           <select>
             <option>Enter Symptom 8</option>
@@ -1427,8 +1461,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom9}
-          onChange={handleInputChange}
+          value={symptom9}
+          onChange={handleSymptom9Change}
         >
           <select>
             <option>Enter Symptom 9</option>
@@ -1587,8 +1621,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom10}
-          onChange={handleInputChange}
+          value={symptom10}
+          onChange={handleSymptom10Change}
         >
           <select>
             <option>Enter Symptom 10</option>
@@ -1747,8 +1781,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom11}
-          onChange={handleInputChange}
+          value={symptom11}
+          onChange={handleSymptom11Change}
         >
           <select>
             <option>Enter Symptom 11</option>
@@ -1907,8 +1941,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom12}
-          onChange={handleInputChange}
+          value={symptom12}
+          onChange={handleSymptom12Change}
         >
           <select>
             <option>Enter Symptom 12</option>
@@ -2067,8 +2101,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom13}
-          onChange={handleInputChange}
+          value={symptom13}
+          onChange={handleSymptom13Change}
         >
           <select>
             <option>Enter Symptom 13</option>
@@ -2227,8 +2261,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom14}
-          onChange={handleInputChange}
+          value={symptom14}
+          onChange={handleSymptom14Change}
         >
           <select>
             <option>Enter Symptom 14</option>
@@ -2387,8 +2421,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom15}
-          onChange={handleInputChange}
+          value={symptom15}
+          onChange={handleSymptom15Change}
         >
           <select>
             <option>Enter Symptom 15</option>
@@ -2547,8 +2581,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom16}
-          onChange={handleInputChange}
+          value={symptom16}
+          onChange={handleSymptom16Change}
         >
           <select>
             <option>Enter Symptom 16</option>
@@ -2707,8 +2741,8 @@ const Human = () => {
         </span>
         <span
           className="custom-dropdown big"
-          value={data.symptom17}
-          onChange={handleInputChange}
+          value={symptom17}
+          onChange={handleSymptom17Change}
         >
           <select>
             <option>Enter Symptom 17</option>
@@ -2864,7 +2898,7 @@ const Human = () => {
             <option value="cold_hands_and_feets">cold_hands_and_feets</option>
             <option value="passage_of_gases">passage_of_gases</option>
           </select>
-        </span> */}
+        </span>
 
         <br />
 

@@ -62,14 +62,14 @@ function Login() {
     
     <body styles={"background-color: rgba(127, 125, 125, 0.954);"}><>
     <form className ="formbox"action=" " onSubmit={submitForm}>
-    <h1>Login</h1>
+    <h1 className='text-white'>Login</h1>
     
       
-      <input type="email" name="" id="email" placeholder='Username' autoComplete='none' value={email} onChange={(e)=>setEmail(e.target.value)}/>
+      <input type="email" name="" id="email" placeholder='Username' autoComplete='off' value={email} onChange={(e)=>setEmail(e.target.value)}/>
     
     
       
-      <input type="password" name="" placeholder='Password' id="password" autoComplete='none' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+      <input type="password" name="" placeholder='Password' id="password" autoComplete='off' value={password} onChange={(e)=>setPassword(e.target.value)}/>
     
 
     <input type="submit" name="" value="Login"/>

@@ -1,10 +1,14 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import "./proddescription.css";
 
 const Proddescription = (props) => {
   // const { data } = props?.this?.state;
-  const {values}=props;
-  console.log(props.values);
+  const location = useLocation();
+  const { values } = location.state;
+  // const {values}=props;
+  // console.log(props.values);
+  console.log(values)
 
   return (
     // <div className="container">

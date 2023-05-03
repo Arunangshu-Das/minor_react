@@ -23,12 +23,6 @@ function Searchresult(props) {
                 <p className="card-text">{p.Desctription}</p>
                 <p className="card-text"> $ {p.Price}</p>
                 <button
-                  className="btn btn-primary ms-1"
-                  onClick={() => navigate("/proddescription")}
-                >
-                  More Details
-                </button>
-                <button
                   className="btn btn-secondary ms-1"
                   onClick={() => {
                     setCart([...cart, p]);
