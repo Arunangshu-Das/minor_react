@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./human.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Mlresult from "./Mlresult";
-import { Link, navigate } from '@reach/router';
+// import Mlresult from "./Mlresult";
+import { Link, navigate } from 'react-router-dom';
 
 const Human = () => {
   // const navigate = useNavigate();
@@ -149,7 +149,7 @@ const Human = () => {
         let ans=response.data;
         // setA(ans);
         console.log(ans);
-        navigate('/other-page', { state: { message: ans } });
+        navigate('/mlresult', { state: { message: ans } });
       })
       .catch(error => {
         console.log(error);
@@ -236,6 +236,7 @@ const Human = () => {
       <br />
       <br />
       <br />
+      <p className="display-1 text-black">Tell me your Symptoms!</p>
       <form onSubmit={handleSubmit}>
         <span
           className="custom-dropdown big"
@@ -243,7 +244,7 @@ const Human = () => {
           onChange={handleSymptom1Change}
         >
           <select>
-            <option value="">Enter Symptom 1</option>
+            <option>Enter Symptom 1</option>
             <option value="blurred_and_distorted_vision">
               blurred_and_distorted_vision
             </option>
@@ -403,7 +404,7 @@ const Human = () => {
           onChange={handleSymptom2Change}
         >
           <select>
-            <option value="">Enter Symptom 2</option>
+            <option>Enter Symptom 2</option>
             <option value="blurred_and_distorted_vision">
               blurred_and_distorted_vision
             </option>
@@ -563,7 +564,7 @@ const Human = () => {
           onChange={handleSymptom3Change}
         >
           <select>
-            <option value="">Enter Symptom 3</option>
+            <option>Enter Symptom 3</option>
             <option value="blurred_and_distorted_vision">
               blurred_and_distorted_vision
             </option>
@@ -2961,7 +2962,8 @@ const Human = () => {
         <br />
 
         {/* <input type="submit" value="Submit" className="submit-button" /> */}
-        <Link to="/other-page" className="submit-button">Go to other page</Link>
+        {/* <Link to="/mlresult" className="submit-button">Go to other page</Link> */}
+        <button onClick={handleSubmit} className="submit-button">Submit</button>
       </form>
     </div>
   );
