@@ -32,16 +32,28 @@ function Search() {
 
 
   return (
-    <div className="wrapper">
-      <div className="container">
-        <input
-          type="text"
-          className="input"
-          placeholder="Search For Your Medicines!"
-          onChange={(e) => setValues(e.target.value)}
-        />
-        <button value="search" className="close-btn" onClick={fetchData}>Search</button>
-      </div>
+    // <div className="wrapper">
+    //   <div className="container">
+    //     <input
+    //       type="text"
+    //       className="input"
+    //       placeholder="Search For Your Medicines!"
+    //       onChange={(e) => setValues(e.target.value)}
+    //     />
+    //     <button value="search" className="close-btn" onClick={fetchData}>Search</button>
+    //   </div>
+    // </div>
+    <div className="search">
+        <form class="container">
+            <div class="row g-3">
+                <div class="col-9">
+                <input type="text" className="form-control" placeholder="Search For Your Medicines!" aria-label="Search For Your Medicines!" onChange={(e) => setValues(e.target.value)} />
+                </div>
+                <div class="col-3">
+                    <button type="submit" className="btn btn-primary" value="search" onClick={fetchData} >Submit</button>
+                </div>
+            </div>
+        </form>
     </div>
   );
 }

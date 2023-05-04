@@ -79,7 +79,7 @@ function Signup() {
   };
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <h>Sign Up</h>
         <p>Please fill in this form to create an account.</p>
         <hr />
@@ -185,7 +185,109 @@ function Signup() {
         <p>
           Already have an account? <Link to="/login">Sign in</Link>
         </p>
+      </form> */}
+
+
+    <form className="p-4 container border rounded border-primary-subtle" onSubmit={handleSubmit}>
+      <h1>
+      <i class="bi bi-person-lines-fill"></i>{' '}Signup
+      </h1>
+      <div className="text-success">
+        <hr/>
+      </div>
+      <div className="row g-2 mb-3">
+        <div className="col-md">
+          <div className="form-floating">
+            <input type="text" className="form-control" id="floatingInputGrid"
+                      placeholder="Enter Your Name"
+                      name="firstname"
+                      value={firstname}
+                      onChange={(e) => setFirstname(e.target.value)}
+                      required autoComplete='off'
+            />
+            <label htmlFor="floatingInputGrid">First Name</label>
+          </div>
+        </div>
+        <div className="col-md">
+          <div className="form-floating">
+            <input type="text" className="form-control" id="floatingInputGrid" 
+                      placeholder="Enter Your Name"
+                      name="lastname"
+                      value={lastname}
+                      onChange={(e) => setLastname(e.target.value)}
+                      required autoComplete='off'
+            />
+            <label htmlFor="floatingInputGrid">Last Name</label>
+          </div>
+        </div>
+      </div>
+      <div className="row g-2 mb-3">
+        <div className="col-md">
+          <div className="form-floating">
+            <input type="email" className="form-control" id="floatingInputGrid" 
+                      placeholder="Enter Your Email Id"
+                      name="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required autoComplete='off'
+            />
+            <label htmlFor="floatingInputGrid">Email address</label>
+          </div>
+        </div>
+        <div className="col-md">
+          <div className="form-floating">
+            <input type="password" className="form-control" id="floatingInputGrid"
+                      placeholder="Enter Your Password"
+                      name="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required autoComplete='off'
+            />
+            <label htmlFor="floatingInputGrid">Password</label>
+          </div>
+        </div>
+      </div>
+      <div className="row g-2 mb-3">
+        <div className="col-md">
+          <div className="form-floating">
+            <input type="text" className="form-control" id="floatingInputGrid" 
+                      placeholder="Enter Your Contact No."
+                      name="phoneno"
+                      value={phoneno}
+                      onChange={(e) => setPhoneno(e.target.value)}
+                      required autoComplete='off'
+            />
+            <label htmlFor="floatingInputGrid">Phone Number</label>
+          </div>
+        </div>
+        <div className="col-md">
+          <div className="form-floating">
+            <input type="text" className="form-control" id="floatingInputGrid" 
+                      placeholder="Enter Your Full Address"
+                      name="address"
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                      required autoComplete='off'
+            />
+            <label htmlFor="floatingInputGrid">Address</label>
+          </div>
+        </div>
+      </div>
+      <form class="d-flex justify-content-between was-validated">
+      <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" id="validationFormCheck1" required/>
+        <label class="form-check-label" for="validationFormCheck1">I agree that I will follow all terms and conditions.</label>
+        <div class="invalid-feedback">Please check this to continue</div>
+      </div>
       </form>
+      <div className="d-grid gap-2 col-6 mx-auto">
+        <button type="submit" className="btn btn-primary mt-3">Submit</button>
+      </div>
+      <p className="mt-3" style={{'color':'black'}}>
+        Already have an account? <Link to="/login">Sign in</Link>
+      </p>
+    </form>
+
     </>
   );
 }

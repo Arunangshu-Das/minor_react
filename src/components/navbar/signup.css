@@ -7,7 +7,7 @@ border: 1px solid #000000;
 margin-bottom: 5px;
 padding: 0px 15px 0 15px;
 } */
-input[type=text], input[type=password], input[type=email], input[type=number]
+/* input[type=text], input[type=password], input[type=email], input[type=number]
 {
 width: 97%;
 padding: 10px;
@@ -31,4 +31,11 @@ border: none;
 cursor: pointer;
 width: 100%;
 text:bold;
+} */
+
+
+label{
+    z-index: 100000;
+    color: black;
+    
 }

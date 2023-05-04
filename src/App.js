@@ -15,6 +15,7 @@ import { Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
 import Showcart from './components/navbar/Showcart';
 import Proddescription from './components/product/Proddescription';
+import Mlresult from './components/mainpage/Mlresult';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path='/searchresult' element={<Searchresult/>}/>
         <Route path='/proddescription' element={<Proddescription/>}/>
         <Route path='/showcart' element={<Showcart/>}/>
+        <Route path='/mlresult' element={<Mlresult/>}/>
         <Route path='*' element={<PageNotFound/>}/>
       </Routes>
       <Footer/>

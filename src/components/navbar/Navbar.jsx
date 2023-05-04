@@ -24,7 +24,7 @@ const Navbar = () => {
             <i className="fas fa-bars"></i>
         </label>
         <label className="logo">
-        <i class="bi bi-capsule"></i> {' '}{' '}{' '}
+        <i className="bi bi-capsule"></i> {' '}{' '}{' '}
           MediQUICK</label>
         <ul>
             <li><Link className="link " to="/">Home</Link></li>
@@ -42,8 +42,8 @@ const Navbar = () => {
             <li><Link className="link" to="/search">Search</Link></li>
             <li><Link className="link" to="/showcart">
                 <Badge count={cart?.length} showZero offset={[10, -5]}>
-                  <div className='text-white' style={{"font-size": "30px"}}>
-                    <i class="bi bi-bag"></i>
+                  <div className='text-white' style={{"fontSize": "30px"}}>
+                    <i className="bi bi-bag"></i>
                   </div>
                 </Badge>
                 </Link>

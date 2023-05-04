@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./human.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Mlresult from "./Mlresult";
+import { Link, navigate } from '@reach/router';
 
 const Human = () => {
   // const navigate = useNavigate();
@@ -84,14 +86,70 @@ const Human = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const data1 = symptom1+','+symptom2+','+symptom3+','+symptom4+','+symptom5+','+symptom6+','+symptom7+','+symptom8+','+symptom9+','+symptom10+','+symptom11+','+symptom12+','+symptom13+','+symptom14+','+symptom15+','+symptom16+','+symptom17;
+    // const data1 = symptom1+','+symptom2+','+symptom3+','+symptom4+','+symptom5+','+symptom6+','+symptom7+','+symptom8+','+symptom9+','+symptom10+','+symptom11+','+symptom12+','+symptom13+','+symptom14+','+symptom15+','+symptom16+','+symptom17;
+    let data1='';
+    if(symptom1!==''){
+      data1=symptom1;
+    }
+    if(symptom2!==''){
+      data1=data1+','+symptom2;
+    }
+    if(symptom3!==''){
+      data1=data1+','+symptom3;
+    }
+    if(symptom4!==''){
+      data1=data1+','+symptom4;
+    }
+    if(symptom5!==''){
+      data1=data1+','+symptom5;
+    }
+    if(symptom6!==''){
+      data1=data1+','+symptom6;
+    }
+    if(symptom7!==''){
+      data1=data1+','+symptom7;
+    }
+    if(symptom8!==''){
+      data1=data1+','+symptom8;
+    }
+    if(symptom9!==''){
+      data1=data1+','+symptom9;
+    }
+    if(symptom10!==''){
+      data1=data1+','+symptom10;
+    }
+    if(symptom11!==''){
+      data1=data1+','+symptom11;
+    }
+    if(symptom12!==''){
+      data1=data1+','+symptom12;
+    }
+    if(symptom13!==''){
+      data1=data1+','+symptom13;
+    }
+    if(symptom14!==''){
+      data1=data1+','+symptom14;
+    }
+    if(symptom15!==''){
+      data1=data1+','+symptom15;
+    }
+    if(symptom16!==''){
+      data1=data1+','+symptom16;
+    }
+    if(symptom17!==''){
+      data1=data1+','+symptom17;
+    }
+
     const data={
       data:data1
     }
 
     axios.post('https://minor-ml-waua.onrender.com/search', data)
       .then(response => {
-        console.log(response.data);
+        let ans=response.data;
+        // setA(ans);
+        console.log(ans);
+        navigate('/other-page', { state: { message: ans } });
       })
       .catch(error => {
         console.log(error);
@@ -2902,7 +2960,8 @@ const Human = () => {
 
         <br />
 
-        <input type="submit" value="Submit" className="submit-button" />
+        {/* <input type="submit" value="Submit" className="submit-button" /> */}
+        <Link to="/other-page" className="submit-button">Go to other page</Link>
       </form>
     </div>
   );
